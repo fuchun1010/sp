@@ -1,5 +1,6 @@
 package com.tank;
 
+import com.tank.auto.Boss;
 import com.tank.enumer.DataAccessEnum;
 import com.tank.spike.ContextAware;
 import io.vavr.Function1;
@@ -23,6 +24,8 @@ public class App {
     System.out.println("db = " + db);
     val contextAware = context.getBean(ContextAware.class);
     contextAware.printBeanDefinition();
+    val boss = context.getBean(Boss.class);
+    boss.sayHello();
     context.close();
   }
 }
