@@ -1,10 +1,10 @@
 package com.tank;
 
 import com.tank.enumer.DataAccessEnum;
+import com.tank.spike.ContextAware;
 import io.vavr.Function1;
 import lombok.val;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import org.springframework.context.annotation.PropertySource;
 
 import java.util.List;
 import java.util.Map;
@@ -21,5 +21,8 @@ public class App {
     users.forEach(System.out::println);
     val db = context.getBean("db");
     System.out.println("db = " + db);
+    val contextAware = context.getBean(ContextAware.class);
+    contextAware.printBeanDefinition();
+    context.close();
   }
 }
