@@ -1,7 +1,7 @@
 package com.tank.conf;
 
 import cn.hutool.core.util.StrUtil;
-import com.tank.annotation.ConditionalOnDb;
+import com.tank.annotation.DriverOnDb;
 import io.vavr.control.Try;
 import lombok.NonNull;
 import lombok.val;
@@ -19,7 +19,7 @@ public class OnConditionalDbDriver implements Condition {
   @Override
   public boolean matches(@NonNull final ConditionContext conditionContext,
                          @NonNull final AnnotatedTypeMetadata annotatedTypeMetadata) {
-    val annotationAttributes = annotatedTypeMetadata.getAnnotationAttributes(ConditionalOnDb.class.getName());
+    val annotationAttributes = annotatedTypeMetadata.getAnnotationAttributes(DriverOnDb.class.getName());
     if (Objects.isNull(annotationAttributes)) {
       return false;
     }

@@ -12,6 +12,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Conditional({OnConditionalDbDriver.class})
-public @interface ConditionalOnDb {
+public @interface DriverOnDb {
   String value();
 }
