@@ -11,12 +11,12 @@ import org.springframework.stereotype.Component;
 public class ReceiveDataListener {
 
   @EventListener
-  public void writeRedis(@NonNull final ReceivedData<String> data) {
+  public void writeRedis(@NonNull final CustomerEvent<String> data) {
     System.out.println("writeRedis");
   }
 
   @EventListener
-  public void writeRdb(@NonNull final ReceivedData<String> data) {
+  public void writeRdb(@NonNull final CustomerEvent<String> data) {
     System.out.println("writeRdb");
   }
 

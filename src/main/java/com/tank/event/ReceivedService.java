@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class ReceivedService implements ApplicationEventPublisherAware {
 
   public void received(@NonNull final String json) {
-    this.publisher.publishEvent(new ReceivedData(json));
+    this.publisher.publishEvent(new CustomerEvent<String>(json));
   }
 
   @Override
