@@ -5,9 +5,9 @@ import org.springframework.context.ApplicationEvent;
 /**
  * @author tank198435163.com
  */
-public class ReceivedData extends ApplicationEvent {
+public class ReceivedData<T> extends ApplicationEvent {
 
-  public ReceivedData(String source) {
+  public ReceivedData(T source) {
     super(source);
   }
 }
