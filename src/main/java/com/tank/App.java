@@ -12,6 +12,7 @@ public class App {
   public static void main(final String[] args) {
     final String[] packages = new String[]{"com.tank.**"};
     val context = new AnnotationConfigApplicationContext(packages);
+    context.refresh();
     Stream.of(context.getBeanDefinitionNames()).forEach(System.out::println);
     val receivedService = context.getBean(ReceivedService.class);
     receivedService.received("hello");
