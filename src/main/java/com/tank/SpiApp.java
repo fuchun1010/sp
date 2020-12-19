@@ -1,21 +1,28 @@
 package com.tank;
 
-import com.tank.service.Pen;
+import cn.hutool.core.io.FileUtil;
+import com.tank.resource.TextResourceResolver;
 import lombok.NonNull;
+import lombok.SneakyThrows;
 import lombok.val;
+import org.springframework.core.io.DefaultResourceLoader;
 
-import java.util.ServiceLoader;
+import java.io.IOException;
+import java.nio.charset.Charset;
 
 /**
  * @author tank198435163.com
  */
 public class SpiApp {
 
+  @SneakyThrows({IOException.class})
   public static void main(@NonNull final String[] args) {
-    val spiLoader = ServiceLoader.load(Pen.class);
-    for (Pen result : spiLoader) {
-      System.out.println(result.getClass().getName());
-    }
 
+    val textResource = new TextResourceResolver();
+    val resourceLoader = new DefaultResourceLoader();
+    resourceLoader.addProtocolResolver(textResource);
+    val targetResource = resourceLoader.getResource(textResource.resourceProtocolName() + "word.txt");
+    FileUtil.readLines(targetResource.getFile(), Charset.defaultCharset())
+            .forEach(System.out::println);
   }
 }
