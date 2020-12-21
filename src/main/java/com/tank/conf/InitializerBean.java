@@ -1,6 +1,6 @@
 package com.tank.conf;
 
-import com.tank.annotation.DataFrom;
+import com.tank.annotation.EnableHello;
 import com.tank.resource.YmlPropsSourceFactory;
 import com.tank.service.db.DataSourceRegisterPostProcessor;
 import org.springframework.context.annotation.Bean;
@@ -20,12 +20,9 @@ public class InitializerBean {
     return new DataSourceRegisterPostProcessor();
   }
 
-
   @Bean
-  @DataFrom("redis")
-  public String initHello() {
-    return "hello";
+  @EnableHello("welcome to china")
+  public String sayHello() {
+    return "hello,fuchun";
   }
-
-
 }
