@@ -11,6 +11,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class ReceivedService implements ApplicationEventPublisherAware {
 
+  private ApplicationEventPublisher publisher = null;
+
   public void received(@NonNull final String json) {
     this.publisher.publishEvent(new CustomerEvent<String>(json));
   }
@@ -19,6 +21,4 @@ public class ReceivedService implements ApplicationEventPublisherAware {
   public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
     this.publisher = publisher;
   }
-
-  private ApplicationEventPublisher publisher = null;
 }

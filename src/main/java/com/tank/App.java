@@ -12,9 +12,6 @@ public class App {
     final String[] packages = new String[]{"com.tank.**"};
     val context = new AnnotationConfigApplicationContext(packages);
     Stream.of(context.getBeanDefinitionNames()).forEach(System.out::println);
-    System.out.println("args = " + context.getBean("sayHello").toString());
-    ;
-//    val userProfile = context.getBean(UserProfile.class);
-//    val name = userProfile.getUserName();
+    context.close();
   }
 }

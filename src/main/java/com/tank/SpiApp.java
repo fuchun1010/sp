@@ -1,28 +1,42 @@
 package com.tank;
 
-import cn.hutool.core.io.FileUtil;
-import com.tank.resource.TextResourceResolver;
+import lombok.Getter;
 import lombok.NonNull;
-import lombok.SneakyThrows;
+import lombok.Setter;
 import lombok.val;
-import org.springframework.core.io.DefaultResourceLoader;
-
-import java.io.IOException;
-import java.nio.charset.Charset;
 
 /**
  * @author tank198435163.com
  */
 public class SpiApp {
 
-  @SneakyThrows({IOException.class})
-  public static void main(@NonNull final String[] args) {
 
-    val textResource = new TextResourceResolver();
-    val resourceLoader = new DefaultResourceLoader();
-    resourceLoader.addProtocolResolver(textResource);
-    val targetResource = resourceLoader.getResource(textResource.resourceProtocolName() + "word.txt");
-    FileUtil.readLines(targetResource.getFile(), Charset.defaultCharset())
-            .forEach(System.out::println);
+  public static void main(@NonNull final String[] args) throws CloneNotSupportedException {
+    val person = new Person();
+    person.setName("lisi");
+    person.setGender(Byte.valueOf("1"));
+
+    val p1 = person.clone();
+    val p2 = person.clone();
+    System.out.println(p1 == p2);
+    System.out.println("p1.name = " + p1.getName());
+    System.out.println("p2.name = " + p2.getName());
+    System.out.println("p1 = " + p1);
+    System.out.println("p2 = " + p2);
+  }
+
+
+  @Getter
+  @Setter
+  private static class Person implements Cloneable {
+
+    private String name;
+    private Byte gender;
+
+    @Override
+    protected Person clone() throws CloneNotSupportedException {
+
+      return (Person) (super.clone());
+    }
   }
 }

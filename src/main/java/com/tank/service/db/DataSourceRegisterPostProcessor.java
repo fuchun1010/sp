@@ -22,6 +22,8 @@ import java.util.List;
 @PropertySource("classpath:db.properties")
 public class DataSourceRegisterPostProcessor implements BeanDefinitionRegistryPostProcessor, EnvironmentAware {
 
+  private Environment environment;
+
   @Override
   public void postProcessBeanDefinitionRegistry(BeanDefinitionRegistry registry) throws BeansException {
     val beanDefinitionBuilder = BeanDefinitionBuilder
@@ -57,6 +59,4 @@ public class DataSourceRegisterPostProcessor implements BeanDefinitionRegistryPo
   public void setEnvironment(Environment environment) {
     this.environment = environment;
   }
-
-  private Environment environment;
 }
