@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
  * @author tank198435163.com
  */
 @Component
-public class DefualtRedisService implements RedisService {
+public class DefaultRedisServiceImpl implements RedisService {
 
 
   @Override

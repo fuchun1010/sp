@@ -38,6 +38,6 @@ public class RedisInterceptor {
   }
 
 
-  @DeclareParents(value = "com.tank.service.AccountService", defaultImpl = DefualtRedisService.class)
+  @DeclareParents(value = "com.tank.service.AccountService", defaultImpl = DefaultRedisServiceImpl.class)
   private RedisService redisService;
 }
