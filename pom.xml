@@ -1,4 +1,4 @@
- <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.tank</groupId>
@@ -17,6 +17,7 @@
         <junit.version>4.13</junit.version>
         <spring.context.version>5.2.5.RELEASE</spring.context.version>
         <vavr.io.version>0.10.2</vavr.io.version>
+        <spring.mybatis.starter>2.1.3</spring.mybatis.starter>
     </properties>
 
     <dependencies>
@@ -98,6 +99,7 @@
             <artifactId>snakeyaml</artifactId>
             <version>1.27</version>
         </dependency>
+
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
